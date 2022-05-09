@@ -583,6 +583,8 @@
  */
 #if ENABLED(KNUTWURST_4MAXP2)
   #define TEMP_SENSOR_0 11
+#elif ENABLED(E3D_THERMISTOR) 
+  #define TEMP_SENSOR_0 5
 #else
   #define TEMP_SENSOR_0 1
 #endif
