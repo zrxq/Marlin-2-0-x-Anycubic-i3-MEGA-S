@@ -1046,14 +1046,18 @@
   #define X_DRIVER_TYPE  TMC2208_STANDALONE
   #define Y_DRIVER_TYPE  TMC2208_STANDALONE
   #define Z_DRIVER_TYPE  TMC2208_STANDALONE
-  #define E0_DRIVER_TYPE TMC2208_STANDALONE
   #define E1_DRIVER_TYPE TMC2208_STANDALONE
 #else
   #define X_DRIVER_TYPE  A4988
   #define Y_DRIVER_TYPE  A4988
   #define Z_DRIVER_TYPE  A4988
-  #define E0_DRIVER_TYPE A4988
   #define E1_DRIVER_TYPE A4988
+#endif
+
+#if ENABLED(KNUTWURST_TMC) && !ENABLED(A4988_E0) 
+  #define E0_DRIVER_TYPE TMC2208_STANDALONE
+#else
+  #define E0_DRIVER_TYPE A4988
 #endif
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
